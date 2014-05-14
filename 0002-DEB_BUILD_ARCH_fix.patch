@@ -1,0 +1,21 @@
+From: Christopher Prevoe <packages@prevoe.com>
+Date: Wed, May 13, 2014 22:59:55 +0500
+Subject: [PATCH] Dynamically select architecture 
+
+This patch is applied to the ubuntu package from the ubuntu-wine-ppa. It
+automatically chooses the architecture of interest and builds it. This allows
+no changes to be made when switching to your 32-bit chroot.
+
+Now that multi-arch should be fixed in trusty, it might be worth looking into
+whether or not the schroot is even needed but that's a task for another day.
+---
+--- a/debian/rules	2013-02-15 22:49:10.000000000 -0500
++++ b/debian/rules	2013-04-10 21:37:37.883436571 -0400
+@@ -1,4 +1,7 @@
+ #!/usr/bin/make -f
++
++DEB_BUILD_ARCH=$(shell dpkg-architecture -qDEB_BUILD_ARCH)
++
+ %:
+ 	dh $@ --parallel
+ 
