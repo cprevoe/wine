@@ -3,7 +3,10 @@ Date: Wed, May 13, 2014 22:59:55 +0500
 Subject: [PATCH] HACK: Disallow block-based textures with sub-block size
 
 A modification of Andrea Canciani's patch which works with wine 1.7.18. His same
-comments apply and are as follows.
+comments apply and are below.
+
+It is notable that this hack breaks textures in Skyrim. I'd love a different
+solution.
 
 From: Andrea Canciani <ranma42@gmail.com>
 Date: Wed, 21 Nov 2012 23:56:52 +0100
